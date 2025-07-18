@@ -262,10 +262,22 @@ function removeFont(fontName) {
  * Main initialization function.
  */
 jQuery(async () => {
-    // Load settings and HTML
-    settings = { ...defaultSettings, ...extension_settings[extensionName] };
-    settings.fonts = { ...defaultSettings.fonts, ...settings.fonts };
+    // *** THIS BLOCK IS THE FIX ***
+    // Safely initialize the extension's settings object if it doesn't exist.
+    extension_settings[extensionName] = extension_settings[extensionName] || {};
+    const savedSettings = extension_settings[extensionName];
+
+    // Deep merge the default settings with the saved settings to ensure all keys are present.
+    settings = { 
+        ...defaultSettings, 
+        ...savedSettings,
+        fonts: {
+            ...defaultSettings.fonts,
+            ...(savedSettings.fonts || {})
+        }
+    };
     extension_settings[extensionName] = settings;
+    // *** END OF FIX ***
 
     const settingsHtml = await $.get(`${extensionFolderPath}/index.html`);
     $("#extensions_settings").append(settingsHtml);
@@ -291,7 +303,9 @@ jQuery(async () => {
         settings.overrideThemeFont = $(this).prop('checked');
         saveSettingsDebounced();
         // Re-apply font to update override style
-        applyFont(settings.activeFont);
+        if (settings.activeFont) {
+           applyFont(settings.activeFont);
+        }
     }).prop('checked', settings.overrideThemeFont);
 
     $('#notifications_enabled').on('input', function() {
