@@ -1,0 +1,70 @@
+<div class="custom-fonts-container">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>Custom Fonts v2.0</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+
+            <!-- ADD FONT SECTION -->
+            <fieldset class="cf-fieldset">
+                <legend>Add New Font</legend>
+
+                <!-- Google Font Input -->
+                <div class="cf-section">
+                    <label class="cf-label">Google Font</label>
+                    <div class="cf-input-group">
+                        <input type="text" id="google_font_name" class="text_pole" placeholder="Enter Font Name">
+                        <input type="text" id="google_font_link" class="text_pole" placeholder="Paste Google Fonts URL">
+                        <button id="add_google_font_button" class="menu_button"><i class="fa-solid fa-plus"></i> Add</button>
+                    </div>
+                </div>
+
+                <!-- Local Font Input -->
+                <div class="cf-section">
+                    <label class="cf-label">Local Font</label>
+                    <div class="cf-input-group">
+                        <input type="text" id="local_font_name" class="text_pole" placeholder="Enter Font Name">
+                        <label for="local_font_file" class="menu_button cf-file-label"><i class="fa-solid fa-upload"></i> Choose File</label>
+                        <input type="file" id="local_font_file" accept=".ttf,.otf,.woff,.woff2" style="display: none;">
+                        <span id="local_font_filename" class="cf-filename">No file selected.</span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- MANAGE FONTS SECTION -->
+            <fieldset class="cf-fieldset">
+                <legend>Manage & Apply</legend>
+
+                <div class="cf-section">
+                    <label for="font_select" class="cf-label">Active Font</label>
+                    <div class="cf-input-group">
+                        <select id="font_select" class="text_pole"></select>
+                        <button id="apply_font_button" class="menu_button"><i class="fa-solid fa-check"></i> Apply</button>
+                    </div>
+                </div>
+
+                <!-- Font List -->
+                <div id="font_list_container" class="cf-font-list">
+                    <!-- Fonts will be dynamically inserted here -->
+                </div>
+            </fieldset>
+
+            <!-- SETTINGS SECTION -->
+            <fieldset class="cf-fieldset">
+                <legend>Settings</legend>
+                <div class="cf-settings-grid">
+                    <label for="auto_load_font">Load active font on startup</label>
+                    <input id="auto_load_font" type="checkbox" />
+
+                    <label for="override_theme_font">Override theme font</label>
+                    <input id="override_theme_font" type="checkbox" />
+
+                    <label for="notifications_enabled">Enable notifications</label>
+                    <input id="notifications_enabled" type="checkbox" />
+                </div>
+            </fieldset>
+            <hr class="sysHR">
+        </div>
+    </div>
+</div>

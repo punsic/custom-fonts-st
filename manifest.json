@@ -1,0 +1,11 @@
+{
+    "display_name": "st-custom-fonts",
+    "loading_order": 9,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "@FrostBD (Revamped by AI)",
+    "version": "2.0",
+    "homePage": "-"
+}
